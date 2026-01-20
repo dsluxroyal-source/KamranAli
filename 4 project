@@ -1,0 +1,24 @@
+print("📝 Welcome to Reminder App")
+print("Type 'add' to add a reminder")
+print("Type 'view' to see all reminders")
+print("Type 'exit' to quit\n")
+reminders = []  
+while True:
+    command = input("What would you like to do? ").lower()
+    if command == "add":
+        reminder = input("Enter your reminder: ")
+        reminders.append(reminder)
+        print("Reminder added!\n")
+    elif command == "view":
+        if not reminders:
+            print(" No reminders yet.\n")
+        else:
+            print("\n Your Reminders:")
+            for index, item in enumerate(reminders, start=1):
+                print(f"{index}. {item}")
+            print()  # empty line for spacing
+    elif command == "exit":
+        print(" Goodbye! Stay productive.")
+        break
+    else:
+        print(" Invalid command. Try 'add', 'view', or 'exit'.\n")
