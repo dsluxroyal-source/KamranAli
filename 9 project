@@ -1,0 +1,21 @@
+weather_data = {
+    "karachi": {"temp": 32, "condition": "Sunny"},
+    "lahore": {"temp": 29, "condition": "Cloudly"},
+    "islamabad": {"temp": 25, "condition": "Rainy"},
+    "peshawar": {"temp": 31, "condition": "Hot"},
+    "quetta": {"temp": 20, "condition": "Cold"},
+}
+print("Welcome to Jarvis Weather Fatcher")
+print("Type a city name to get weather")
+print("Type 'exit' to quit\n")
+while True:
+    city = input("Enter city name: ").lower()
+    if city == "exit":
+        print("Jarvis signing off. Stay weather-wise")
+        break
+    if city in weather_data:
+        temp = weather_data[city]["temp"]
+        condition = weather_data[city]["condition"]
+        print(f"Weather in {city.title()}: {temp}°C, {condition}\n")
+    else:
+        print("Sorry, I don't have weather data for that city.\n")
