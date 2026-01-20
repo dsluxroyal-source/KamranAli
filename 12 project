@@ -1,0 +1,21 @@
+import webbrowser
+websites = {
+    "google": "https://www.google.com",
+    "youtube": "https://www.youtube.com",
+    "github": "https://www.github.com",
+    "chatgpt": "https://chat.openai.com"
+}
+print("🤖 Jarvis Website Opener")
+print("Type a website name to open it")
+print("Available sites:", ", ".join(websites.keys()))
+print("Type 'exit' to quit\n")
+while True:
+    choice = input("Enter website name: ").lower()
+    if choice == "exit":
+        print("Jarvis signing off. Stay productive 🚀")
+        break
+    elif choice in websites:
+        print(f"Opening {choice}...")
+        webbrowser.open(websites[choice])
+    else:
+        print("❌ Website not found. Try again.\n")
