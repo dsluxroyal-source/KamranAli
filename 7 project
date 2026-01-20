@@ -1,0 +1,7 @@
+import datetime
+import time
+while True:
+    now = datetime.datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    print("\rCurrent Time:", current_time, end="")
+    time.sleep(1)
