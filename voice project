@@ -1,0 +1,80 @@
+import pyttsx3
+import os
+def init_engine():
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 160)      # Speed of speech
+    engine.setProperty('volume', 1.0)    # Volume (0.0 - 1.0)
+    return engine
+def change_voice(engine):
+    voices = engine.getProperty('voices')
+    print("\nAvailable Voices:")
+    for i, voice in enumerate(voices):
+        print(f"{i}: {voice.name}")
+    try:
+        choice = int(input("Select voice number: "))
+        engine.setProperty('voice', voices[choice].id)
+        print("✅ Voice updated\n")
+    except:
+        print("❌ Invalid choice\n")
+def speak_text(engine):
+    text = input("\nEnter text to speak:\n> ")
+    engine.say(text)
+    engine.runAndWait()
+def speak_from_file(engine):
+    file_path = input("\nEnter text file path:\n> ")
+
+    if not os.path.exists(file_path):
+        print("❌ File not found\n")
+        return
+
+    with open(file_path, "r", encoding="utf-8") as file:
+        text = file.read()
+
+    engine.say(text)
+    engine.runAndWait()
+def change_rate(engine):
+    try:
+        rate = int(input("Enter speech rate (120–200 recommended): "))
+        engine.setProperty('rate', rate)
+        print("✅ Rate updated\n")
+    except:
+        print("❌ Invalid rate\n")
+def change_volume(engine):
+    try:
+        volume = float(input("Enter volume (0.0 to 1.0): "))
+        engine.setProperty('volume', volume)
+        print("✅ Volume updated\n")
+    except:
+        print("❌ Invalid volume\n")
+def main():
+    engine = init_engine()
+    while True:
+        print("""
+==============================
+ AUTO VOICE READER SYSTEM
+==============================
+1. Speak custom text
+2. Speak from text file
+3. Change voice
+4. Change speech rate
+5. Change volume
+6. Exit
+""")
+        choice = input("Choose an option: ")
+        if choice == "1":
+            speak_text(engine)
+        elif choice == "2":
+            speak_from_file(engine)
+        elif choice == "3":
+            change_voice(engine)
+        elif choice == "4":
+            change_rate(engine)
+        elif choice == "5":
+            change_volume(engine)
+        elif choice == "6":
+            print("👋 Exiting. Stay disciplined.")
+            break
+        else:
+            print("❌ Invalid option. Try again.\n")
+if __name__ == "__main__":
+    main()
