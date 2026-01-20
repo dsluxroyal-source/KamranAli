@@ -1,0 +1,19 @@
+print("Welcome to Password Strength Checker!\n")
+password = input("Enter your password: ")
+length_ok = len(password) >= 8
+has_upper = any(c.isupper() for c in password)
+has_lower = any(c.islower() for c in password)
+has_digit = any(c.isdigit() for c in password)
+has_special = any(not c.isalnum() for c in password)
+if all([length_ok, has_upper, has_lower, has_digit, has_special]):
+    print("Your password is STRONG ✅")
+elif length_ok and has_upper and has_lower and (has_digit or has_special):
+    print("Your password is MEDIUM ⚠️")
+else:
+    print("Your password is WEAK ❌")
+print("\nPassword Requirements:")
+print("- At least 8 characters")
+print("- At least one uppercase letter")
+print("- At least one lowercase letter")
+print("- At least one digit")
+print("- At least one special character")
