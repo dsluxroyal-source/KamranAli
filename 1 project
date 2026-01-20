@@ -1,0 +1,10 @@
+print("Hello! I am Jarvis")
+name = input("What is your name? ")
+print(f"Nice to meet you, {name}!")
+while True:
+    user_input = input("Say something (type'exit' to quit): ")
+    if user_input.lower() == 'exit':
+        print(f"Gooodbye, {name}. Jarvis signing off")
+        break
+    else:
+        print(f"Jarvis heard: {user_input}")
