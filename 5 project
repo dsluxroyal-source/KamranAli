@@ -1,0 +1,11 @@
+import random
+print("Welcome to Dice Rolling Simulator")
+while True:
+    dice = random.randint(1, 6)
+    print(f"You rolled: {dice}")
+    choice = input("Roll again? (yes/no): ").lower()
+    if choice == "no" or choice == "exit":
+        print("Goodbye! Thanks for playing")
+        break
+    elif choice != "yes":
+        print("Invalid choice. Please type 'yes or'no'.")
