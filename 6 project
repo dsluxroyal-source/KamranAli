@@ -1,0 +1,25 @@
+import random
+print("Welcome to Rock-Paper-Scissors vs Jarvis")
+print("Type: rock, paper, or scissors")
+print("Type 'exit' to quit\n")
+choices = ["rock", "paper", "scissors"]
+while True:
+    user_choice = input("Your choice: ").lower()
+    if user_choice == "exit":
+        print("Jarvis: Game over. Goodbye, sir.")
+        break
+    if user_choice not in choices:
+        print("Jarvis: Invalid choice. Please choose rock, paper, or scissors.\n ")
+        continue
+    jarvis_choice = random.choice(choices)
+    print(f"Jarvis chose: {jarvis_choice}")
+    if user_choice == jarvis_choice:
+        print("Result: It's a tie!\n")
+    elif (
+        (user_choice == "rock" and jarvis_choice == "scissors") or
+        (user_choice == "paper" and jarvis_choice == "rock") or
+        (user_choice == "scissors" and jarvis_choice == "paper")
+    ):
+        print("Result: You win!\n")
+    else:
+        print("Result: Jarvis win!\n")
